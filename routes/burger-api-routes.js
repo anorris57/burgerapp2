@@ -8,7 +8,7 @@ module.exports = function(app) {
     db.Burger.findAll({})
     .then(function(dbBurger) {
       var hbsObject = {
-        burgers: data
+        burgers: res.body
       };
       console.log(hbsObject);
       res.render("index", hbsObject);

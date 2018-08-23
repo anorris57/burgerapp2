@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
+require("./routes/burger-api-routes")(app);
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
@@ -24,8 +25,9 @@ app.set("view engine", "handlebars");
 
 
 
+
 // Start our server so that it can begin listening to client requests.
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
